@@ -1,15 +1,46 @@
-{% extends 'layout.html' %}
+{% extends 'layout.html' %} {% block content %} {% load static %}
 
-<h1>Home</h1>
+<header class="row bg-black">
+  <div class="col-md-4">
+    <img src="{% static 'darkprofile.jpg' %}" alt="nothing" height="500" />
+  </div>
 
-{% block content %}
-  {% for project in projects %}
-    <img src="{{ project.image.url }}" class="card-img-top" />
-    <h2>{{ project.title }}</h2>
-    <p>{{ project.description }}</p>
+  <div class="col-md-8 my-auto">
+    <h1>I'm <strong>MT</strong></h1>
+    <h3>I'm Fullstack Python Developer</h3>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto accusamus
+      soluta architecto, veniam quibusdam molestiae voluptate nulla explicabo?
+      Tempora earum illo sapiente ipsam magnam. Tempora impedit nihil, labore
+      sapiente amet ipsum placeat, vel cumque voluptatibus corrupti tenetur
+      debitis iure reprehenderit. Quae nam ea esse maxime a suscipit reiciendis
+      perspiciatis inventore doloremque, quam iure deserunt porro, voluptatum
+      sapiente nesciunt? Voluptatibus esse praesentium dolorem voluptatem
+      quibusdam unde possimus eos. Corrupti et cumque accusantium libero!
+      Assumenda autem quod rem. Eaque, possimus, fugiat ex ratione suscipit
+      reiciendis ipsa officia et quia aspernatur mollitia laborum culpa harum
+      ad, dolorem ut nesciunt quisquam accusamus minima natus!
+    </p>
+    <a
+      href="{% static 'cv.pdf' %}"
+      target="_blank"
+      class="btn btn-primary btn-lg rounde-0 my-3"
+      >Download CV</a
+    >
+  </div>
+</header>
 
-    {% if project.url %}
-      <a href="{{ project.url }}" class="btn btn-light rounded-0 btn-sm" target="__blank" rel="noreferrer">Visit the Project</a>
-    {% endif %}
-  {% endfor %}
-{% endblock %}
+{% for project in projects %}
+<h2>{{ project.title }}</h2>
+<img src="{{ project.image.url }}" class="card-img-top" />
+<p>{{ project.description }}</p>
+
+{% if project.url %}
+<a
+  href="{{ project.url }}"
+  class="btn btn-light rounded-0 btn-sm"
+  target="__blank"
+  rel="noreferrer"
+  >Visit the Project</a
+>
+{% endif %} {% endfor %} {% endblock %}
